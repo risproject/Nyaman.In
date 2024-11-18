@@ -120,7 +120,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         const URL = "https://docs.google.com/spreadsheets/d/13jnJAr_aLzEtLHS51oHQHnmbwDwBRRKwqbnnn-37kAM/export?format=csv";
         const mainContent = document.querySelector("#mainContent");
-
+    
         // Fetch data dari Google Sheets CSV URL
         fetch(URL)
           .then(response => response.text())
@@ -134,20 +134,20 @@
               });
               return article;
             });
-
+    
             // Memanggil fungsi untuk menampilkan kartu
             articles.forEach(createCard);
           })
           .catch(error => console.error('Error fetching CSV:', error));
-
+    
         // Fungsi untuk membuat dan menambahkan kartu ke DOM
         function createCard(row) {
           const cardDiv = document.createElement("div");
-          cardDiv.classList.add("col-md-4", "mb-3");
-
+          cardDiv.classList.add("col-md-3", "mb-3");
+    
           const card = document.createElement("div");
           card.classList.add("card", "rounded-4");
-
+    
           // Menambahkan gambar jika ada
           const cardImageDiv = document.createElement("div");
           cardImageDiv.classList.add("card-image-container");
@@ -159,43 +159,57 @@
             imgElement.classList.add("card-img-top", "rounded-4");
             cardImageDiv.appendChild(imgElement);
           }
-
+    
           // Menambahkan overlay untuk teks dan tombol
           const overlay = document.createElement("div");
           overlay.classList.add("overlay");
-
+    
           // Membuat kontainer untuk teks yang dapat digulirkan
           const overlayContent = document.createElement("div");
           overlayContent.classList.add("overlay-content");
-
+    
           const cardTitle = document.createElement("h5");
           cardTitle.classList.add("card-title");
           cardTitle.textContent = row.judul;
-
+    
           const cardDate = document.createElement("small");
           cardDate.classList.add("card-text");
           cardDate.textContent = "Diposting : " + row.tanggal;
-
+    
           const cardAuthor = document.createElement("p");
           cardAuthor.classList.add("card-text");
-          cardAuthor.textContent = row.penulis;
-
-          const cardLink = document.createElement("a");
-          cardLink.classList.add("btn", "btn-primary", "mt-2");
-          cardLink.href = row.link;
-          cardLink.target = "_blank";
-          cardLink.textContent = "Baca Selengkapnya";
-
-          overlayContent.append(cardTitle, cardDate, cardAuthor, cardLink);
+          cardAuthor.textContent = "Author : " + row.author;
+    
+          // Membuat tombol untuk link WhatsApp
+          const whatsappButton = document.createElement("a");
+          whatsappButton.classList.add("btn", "btn-success", "rounded-4");
+          whatsappButton.href = row["link whatsapp"]; // Link WhatsApp
+          whatsappButton.setAttribute("target", "_blank"); // Membuka link di tab baru
+    
+          // Menggunakan innerHTML untuk menambahkan ikon dan teks dalam satu baris
+          whatsappButton.innerHTML = '<i class="bi bi-whatsapp"></i> Chat Whatsapp';
+    
+          // Membuat tombol Selengkapnya
+          const moreButton = document.createElement("a");
+          moreButton.classList.add("btn", "btn-more", "rounded-4");
+          moreButton.href = "#"; // Anda bisa mengganti ini dengan link yang relevan, atau menambahkan event listener jika ingin menampilkan modal
+          moreButton.textContent = "Selengkapnya";
+    
+          // Menambahkan teks dan tombol ke kontainer overlayContent
+          overlayContent.append(cardTitle, cardDate, cardAuthor, whatsappButton, moreButton);
+    
+          // Menambahkan kontainer overlayContent ke overlay
           overlay.appendChild(overlayContent);
+    
+          // Menambahkan overlay dan gambar ke card
           cardImageDiv.appendChild(overlay);
           card.appendChild(cardImageDiv);
           cardDiv.appendChild(card);
-
           mainContent.appendChild(cardDiv);
         }
       });
     </script>
+    
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-b7beFw9td1Vjy8cHMtXMEqEkKnHZyRlJ0TyyGbQbyBfJWVReoYkDQbDumvXgQUwD" crossorigin="anonymous"></script>

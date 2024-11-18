@@ -44,7 +44,7 @@ body {
 
 
 .hero {
-    background: url('/aset/Background-image.png');
+    background-image: url(https://source.unsplash.com/1600x900/?nature,mount,field,desk);
     background-size: cover;
     height: 500px;
     color: white;

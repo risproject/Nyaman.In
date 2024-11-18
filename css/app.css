@@ -44,7 +44,7 @@ body {
 
 
 .hero {
-    background-image: url(https://source.unsplash.com/1600x900/?nature,mount,field,desk);
+    background-image: url(img/banner1.jpg);
     background-size: cover;
     height: 500px;
     color: white;

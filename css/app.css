@@ -44,7 +44,7 @@ body {
 
 
 .hero {
-    background: url('../aset/Background-image.png') no-repeat center center;
+    background-color: salmon;
     background-size: cover;
     min-height: 500px; /* Ensures minimum height */
     color: white;

@@ -44,7 +44,7 @@ body {
 
 
 .hero {
-    background: url('aset/Background-image.png');
+    background: url('/aset/Background-image.png');
     background-size: cover;
     height: 500px;
     color: white;

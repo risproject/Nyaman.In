@@ -183,8 +183,10 @@
           // Membuat tombol untuk link WhatsApp
           const whatsappButton = document.createElement("a");
           whatsappButton.classList.add("btn", "btn-success", "rounded-4");
-          whatsappButton.href = row["link whatsapp"]; // Link WhatsApp
+          whatsappButton.href = row["link-whatsapp"]; // Gunakan row["link-whatsapp"]
           whatsappButton.setAttribute("target", "_blank"); // Membuka link di tab baru
+          whatsappButton.innerHTML = '<i class="bi bi-whatsapp"></i> Chat WhatsApp'; // Tambahkan ikon dan teks
+
     
           // Menggunakan innerHTML untuk menambahkan ikon dan teks dalam satu baris
           whatsappButton.innerHTML = '<i class="bi bi-whatsapp"></i> Chat Whatsapp';

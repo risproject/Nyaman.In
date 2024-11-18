@@ -37,14 +37,14 @@ body {
 
 /* Tambahkan efek scroll */
 .navbar-blur {
-    backdrop-filter: blur(20px);
+    drop-filter: blur(20px);
     background-color: rgba(255, 255, 255, 0.4); /* Semi-transparan */
     transition: backdrop-filter 0.3s, background-color 0.3s ease-in-out;
 }
 
 
 .hero {
-    background: url('aset/Background-image.png') no-repeat center center;
+    background: url('aset/Background-image.png');
     background-size: cover;
     height: 500px;
     color: white;
